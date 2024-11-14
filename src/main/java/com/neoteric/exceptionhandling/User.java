@@ -14,11 +14,15 @@ public class User {
         }
         else {
             try {
+
                 InsufficientBalance insufficientBalance = new InsufficientBalance();
                 throw insufficientBalance;
             }
             catch(InsufficientBalance ie){
-                System.out.println("InsufficientBalance");
+                System.out.println("Insufficient Balance");
+            }
+            finally{
+                System.out.println("finally blcok executed");
             }
         }
     }

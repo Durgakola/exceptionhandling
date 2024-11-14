@@ -4,11 +4,6 @@ package com.neoteric.polymorphisam.factorydesign;
 import com.neoteric.polymorphisam.abstractdemo.CorporateAccountService;
 import com.neoteric.polymorphisam.abstractdemo.CorporateAccountServiceImpl;
 
-public class CorporateAccountServiceFactory  implements AccountFactory {
+public class CorporateAccountServiceFactory {
 
-    @Override
-    public CorporateAccountService createAccount() {
-        return new CorporateAccountServiceImpl();
-
-    }
 }

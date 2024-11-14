@@ -7,7 +7,7 @@ public class RetaileAccountServiceImpl implements RetaileAccountService{
     public Account createAccount(String adhar, String pan) {
        Account account=new Account();
        account.setAccount(UUID.randomUUID().toString());
-       account.setBalance(10000.0);
+       account.setBalance(1000000.0);
        account.setAdhar(adhar);
        account.setPan(pan);
        SBIAccountDBService.accountMap.put(account.getAccount(), account);
