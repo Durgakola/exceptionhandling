@@ -9,7 +9,7 @@ public class ExceptionDemoTest {
 
             System.out.println(" Ticket booking is done");
         }catch (Exception e){
-            System.out.println(((InsufficientBalanceException)e).getCode()+"  "+e.getMessage());
+            System.out.println(((InsufficientBalanceException1)e).getCode()+"  "+e.getMessage());
         }
 
         System.out.println(" I am done calculation");

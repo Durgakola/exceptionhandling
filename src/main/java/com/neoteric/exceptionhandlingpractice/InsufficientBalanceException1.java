@@ -1,12 +1,12 @@
 package com.neoteric.exceptionhandlingpractice;
 
-public class InsufficientBalanceException extends Exception{
+public class InsufficientBalanceException1 extends Exception{
    public String code;
-   public InsufficientBalanceException(String code,String message,Throwable throwable){
+   public InsufficientBalanceException1(String code, String message, Throwable throwable){
        super(message,throwable);
        this.code=code;
    }
-   public InsufficientBalanceException(String code,String message){
+   public InsufficientBalanceException1(String code, String message){
        super(message);
        this.code=code;
    }

@@ -1,5 +1,6 @@
 package com.neoteric.polymorphisam.abstractdemo;
 
+import com.neoteric.exceptionhandlingpractice.TransferEnum;
 import com.neoteric.polymorphisam.Payment;
 import com.neoteric.polymorphisam.PaymentStatusEnum;
 
@@ -36,7 +37,7 @@ public abstract class SbiTransferService implements  RBIPayment {
 
     // if class marked as a abstract there is no rule to have a abstract method
 
-    Function<Double,Payment> errorSupplier = (amount) -> {
+  /*  Function<Double,Payment> errorSupplier = (amount) -> {
         Payment p = new Payment();
         p.setStatus(PaymentStatusEnum.FAILED.getLabel());
         p.setTransactionId(UUID.randomUUID().toString());
@@ -44,11 +45,11 @@ public abstract class SbiTransferService implements  RBIPayment {
         p.setTransactiondate(new Date());
         p.setAmount(amount);
         return  p;
-    };
+    };*/
     protected abstract boolean transactionLimitCheck(Account account,Double amount);
 
     @Override
-    public Payment transfer(String fromAccount, String toAccount, Double amount) {
+    public Payment transfer(String fromAccount, String toAccount, Double amount) throws InsufficientBalanceException {
         Payment p = new Payment();
         // balance check
         if (this.balanceCheck(fromAccount,amount)) {
@@ -62,11 +63,10 @@ public abstract class SbiTransferService implements  RBIPayment {
                 p.setAmount(amount);
 
             }
+            else{
+                throw new InsufficientBalanceException(TransferEnum1.INSUFFICIENT_BALANCE.getCode(), TransferEnum1.INSUFFICIENT_BALANCE.getLabel());
+            }
 
-        }
-
-        if (true){
-            System.out.println("  even this if is executed even after insufficient balance as well");
         }
         return  p;
     }
